@@ -6,7 +6,7 @@ public class TaskDto
     {
         public Guid TaskId { get; set; }
         public int TaskPriority { get; set; }
-        public string TaskName { get; set; }
-        public string TaskDescription { get; internal set; }
+        public string? TaskName { get; set; }
+        public string? TaskDescription { get; internal set; }
     }
 }
