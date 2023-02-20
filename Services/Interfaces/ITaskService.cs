@@ -2,5 +2,12 @@
 
 public class ITaskService
 {
-    
+    public interface ITask
+    {
+        bool Exist { get; }
+
+
+
+
+    }
 }

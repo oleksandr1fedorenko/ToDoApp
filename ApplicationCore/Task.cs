@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using ToDoApp.Task;
+using static todo_backend.applicationCore.Entities.TaskDto;
 
 namespace ToDoApp.ApplicationCore
 {
@@ -19,9 +20,9 @@ namespace ToDoApp.ApplicationCore
 
         public virtual ICollection<Task> Tasks { get; set; }
 
-        public TaskDto ToDto()
+        public taskDto ToDto()
         {
-            return new TaskDto
+            return new taskDto
             {
                 TaskId = TaskId,
                 TaskPriority = TaskPriority,

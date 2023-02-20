@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿namespace todo_backend.applicationCore.Entities;
 
-namespace ToDoApp.Task
+public class TaskDto
 {
-    public class TaskDto
+    public class taskDto
     {
         public Guid TaskId { get; set; }
         public int TaskPriority { get; set; }

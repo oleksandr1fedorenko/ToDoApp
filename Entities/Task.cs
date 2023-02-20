@@ -39,5 +39,10 @@ namespace ToDoApp.Task
             Console.WriteLine("Task updated");
         }
 
+        public void GetTask()
+        {
+            Console.WriteLine("Get task");
+        }
+
     }
 }
