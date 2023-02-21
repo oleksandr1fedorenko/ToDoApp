@@ -9,6 +9,8 @@ public class ApplicationContext:DbContext
     {
     }
 
+    
+
     public DbSet<UserEntity> Users { get; set; }
     public DbSet<TaskEntity>Tasks { get; set; }
 }
