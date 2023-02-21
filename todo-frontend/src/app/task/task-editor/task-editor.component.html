@@ -1,0 +1,39 @@
+<h1 class="text-3xl my-6">{{pageTitle}}</h1>
+<form class="bg-white p-6 rounded-lg">
+  <div class="mb-4">
+    <label class="block font-bold mb-2" for="name">Task Name</label>
+    <input
+      class="w-full border border-gray-400 p-2"
+      type="text"
+      id="name">
+
+  </div>
+  <div class="mb-4">
+    <label class="block font-bold mb-2" for="price">Description</label>
+    <input
+      class="w-full border border-gray-400 p-2"
+      type="text"
+      id="price"
+
+    >
+
+  </div>
+  <div class="mb-4">
+    <label class="block font-bold mb-2" for="category">Priority</label>
+    <select
+      class="w-full border border-gray-400 p-2"
+      id="category"
+    >
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+
+  </div>
+  <button
+    class=" text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br   font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+    type="submit"
+  >
+   Save
+  </button>
+</form>
