@@ -1,0 +1,19 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  todoapp:
+    image: todoapp
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ~/.vsdbg:c:\remote_debugger:rw
+    redis:
+      ports:
+      - '6379:6379'
