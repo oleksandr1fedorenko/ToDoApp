@@ -1,6 +1,11 @@
-﻿namespace TodoAppBe.Services.Interfaces;
+﻿using TodoAppBe.Entities;
 
-public class IUserService
+namespace TodoAppBe.Services.Interfaces;
+
+public interface IUserService
 {
-    
+    Task<int> Register(UserEntity user, string password);
+    Task<string> Login(string username,string password);
+    Task<bool> UserExist(string username);
+
 }
