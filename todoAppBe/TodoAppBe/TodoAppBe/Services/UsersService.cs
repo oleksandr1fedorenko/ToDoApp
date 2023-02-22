@@ -20,7 +20,7 @@ public class UsersService : IUserService
         _configuration = configuration;
     }
 
-    public async Task<int> Register(UserEntity user, string password)
+    public async Task<string> Register(UserEntity user, string password)
     {
         if (await UserExist(user.Username))
 
@@ -36,7 +36,7 @@ public class UsersService : IUserService
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
 
-        return user.Id;
+        return user.Username;
     }
 
     public async Task<string> Login(string username, string password)
@@ -70,7 +70,7 @@ public class UsersService : IUserService
     {
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.NameIdentifier, user.Username),
             new Claim(ClaimTypes.Name, user.Username)
         };
         var tokenKey = _configuration["Token:Key"];
@@ -106,5 +106,10 @@ public class UsersService : IUserService
             var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             return computedHash.SequenceEqual(passwordHash);
         }
+    }
+
+    Task<int> IUserService.Register(UserEntity user, string password)
+    {
+        throw new NotImplementedException();
     }
 }
