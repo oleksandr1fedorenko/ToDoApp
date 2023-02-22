@@ -12,27 +12,29 @@ namespace TodoAppBe.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-            public static IServiceCollection AddApplicationServices(
+        public static IServiceCollection AddApplicationServices(
             this IServiceCollection services,
             IConfiguration configuration,
             IWebHostEnvironment environment)
         {
             AddDatabase(services, configuration);
             AddServices(services);
-            
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetSection("Token:Key").Value)),
+                        IssuerSigningKey =
+                            new SymmetricSecurityKey(
+                                Encoding.UTF8.GetBytes(configuration.GetSection("Token:Key").Value)),
                         ValidIssuer = configuration.GetSection("Token:Issuer").Value,
                         ValidateIssuer = true,
                         ValidateAudience = false
                     };
                 });
-            
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "CorsPolicy",
@@ -52,6 +54,7 @@ namespace TodoAppBe.DependencyInjection
         }
 
         #region Infrastructure
+
         private static void AddDatabase(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationContext>(options =>
@@ -66,7 +69,7 @@ namespace TodoAppBe.DependencyInjection
                 options.EnableSensitiveDataLogging();
             });
         }
-        
+
         #endregion
     }
 }

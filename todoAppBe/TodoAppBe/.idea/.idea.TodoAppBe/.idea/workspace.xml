@@ -6,23 +6,7 @@
     <projectFile profileName="https">TodoAppBe/TodoAppBe.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18ddf111-cbb7-4f34-92b6-3062a13dc119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../todo-frontend/proxy.conf.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../todo-frontend/src/app/models/User.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../todo-frontend/src/services/auth.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/1.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../todo-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoAppBe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoAppBe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAppBe/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAppBe/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAppBe/DTO/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAppBe/DTO/UserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAppBe/DependencyInjection/ServiceCollectionExtenstion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAppBe/DependencyInjection/ServiceCollectionExtenstion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAppBe/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAppBe/Entities/UserEntity.cs" afterDir="false" />
-    </list>
+    <list default="true" id="18ddf111-cbb7-4f34-92b6-3062a13dc119" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +54,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.TodoAppBe: https">
+  <component name="RunManager" selected="Docker.docker-compose.override.yml.mariadb: Compose Deployment">
     <configuration name="TodoAppBe: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/TodoAppBe/TodoAppBe.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -151,11 +135,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue=".NET Launch Settings Profile.TodoAppBe: https" />
         <item itemvalue="Docker.docker-compose.override.yml.mariadb: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.override.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.TodoAppBe/Dockerfile" />
+        <item itemvalue=".NET Launch Settings Profile.TodoAppBe: https" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +159,6 @@
       <workItem from="1676979374046" duration="1217000" />
       <workItem from="1676980637631" duration="1562000" />
       <workItem from="1676982242850" duration="3092000" />
-      <workItem from="1677052278465" duration="7684000" />
     </task>
     <servers />
   </component>
