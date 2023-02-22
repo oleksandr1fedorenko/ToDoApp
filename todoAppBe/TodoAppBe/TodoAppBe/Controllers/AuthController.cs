@@ -44,7 +44,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> LoginAsync([FromForm, Bind] UserDto
+    public async Task<IActionResult> LoginAsync([FromBody, Bind] UserDto
         request, CancellationToken ct)
     {
         try

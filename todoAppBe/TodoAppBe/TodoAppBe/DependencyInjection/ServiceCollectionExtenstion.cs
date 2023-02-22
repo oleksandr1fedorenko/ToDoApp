@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Serilog;
-using Serilog.Exceptions;
+
 using TodoAppBe.Database;
 using TodoAppBe.Services;
 using TodoAppBe.Services.Interfaces;
