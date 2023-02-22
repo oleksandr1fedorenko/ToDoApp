@@ -12,7 +12,7 @@ namespace TodoAppBe.Controllers;
 
 [ApiController]
 [Produces("application/json")]
-[Route("api/[controller]")]
+[Route("api/auth")]
 public class AuthController : ControllerBase
 {
     private readonly IUserService _userService;
@@ -44,7 +44,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> LoginAsync([FromForm, Bind] UserDto
+    public async Task<IActionResult> LoginAsync([FromBody, Bind] UserDto
         request, CancellationToken ct)
     {
         try
