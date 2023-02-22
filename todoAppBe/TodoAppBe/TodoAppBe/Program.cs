@@ -1,8 +1,11 @@
 using Microsoft.OpenApi.Models;
 using TodoAppBe.DependencyInjection;
+using TodoAppBe.Services;
+using TodoAppBe.Services.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<ITaskService, TaskService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
