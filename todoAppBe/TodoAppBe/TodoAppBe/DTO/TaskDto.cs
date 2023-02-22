@@ -1,8 +1,8 @@
 ﻿namespace TodoAppBe.DTO;
 
-public class TTaskDto
+public class TaskDto
 {
-    public Guid PublicId { get; set; }
+    public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public string Priority { get; set; }

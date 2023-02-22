@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TodoAppBe.Domain;
 using TodoAppBe.Entities;
-using TodoAppBe.Entities.Domain;
 
 namespace TodoAppBe.Database;
 
@@ -11,6 +9,8 @@ public class ApplicationContext:DbContext
     {
     }
 
+    
+
     public DbSet<UserEntity> Users { get; set; }
-    public DbSet<TTask> Tasks { get; set; }
+    public DbSet<TaskEntity>Tasks { get; set; }
 }
