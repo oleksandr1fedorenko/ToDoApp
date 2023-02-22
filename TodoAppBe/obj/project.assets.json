@@ -5012,11 +5012,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\todoAppBe\\TodoAppBe\\TodoAppBe\\TodoAppBe.csproj",
+      "projectUniqueName": "C:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\TodoAppBe\\TodoAppBe.csproj",
       "projectName": "TodoAppBe",
-      "projectPath": "c:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\todoAppBe\\TodoAppBe\\TodoAppBe\\TodoAppBe.csproj",
+      "projectPath": "C:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\TodoAppBe\\TodoAppBe.csproj",
       "packagesPath": "C:\\Users\\tomas.seliga\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\todoAppBe\\TodoAppBe\\TodoAppBe\\obj\\",
+      "outputPath": "C:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\TodoAppBe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tomas.seliga\\AppData\\Roaming\\NuGet\\NuGet.Config"

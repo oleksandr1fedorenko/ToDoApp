@@ -1,17 +1,20 @@
 using Microsoft.OpenApi.Models;
 using TodoAppBe.DependencyInjection;
-
+using TodoAppBe.Services;
+using TodoAppBe.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddTransient<ITaskService, TaskService>();
 builder.Services.AddSwaggerGen(c =>
 {
     c.AddServer(new OpenApiServer
     {
         Description = "Development localhost server - Kestrel",
-        Url = "https://localhost:5001"
+        Url = "http://localhost:5000"
     });
     var securitySchema = new OpenApiSecurityScheme()
     {
@@ -47,9 +50,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
-app.UseCors("CorsPolicy");
+//app.UseCors("CorsPolicy");
 
 app.UseAuthentication();
 
@@ -58,3 +61,19 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+
+// var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy(name: MyAllowSpecificOrigins,
+//                       policy  =>
+//                       {
+//                           policy.WithOrigins("http://localhost:5000", "http://localhost:5001");
+//                       });
+// });
+
+
+// app.UseCors(MyAllowSpecificOrigins);

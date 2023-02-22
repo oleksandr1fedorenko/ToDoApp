@@ -1,1 +1,2 @@
 C:\Users\tomas.seliga\Desktop\C#\ToDoApp\todoAppBe\TodoAppBe\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\tomas.seliga\Desktop\C#\ToDoApp\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

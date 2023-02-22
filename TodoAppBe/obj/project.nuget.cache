@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4mqdnqkC732Mp3mEN+xl9dC9LP2+rqgT1Nkq8HNZ0+hDfedmgDTO0FF/4l+8qWIXZz+jRxouXRbmo3y57v6ocg==",
+  "dgSpecHash": "fcJ1qPIn+Guj7/eCH6PB1ak2/MN9XLyHy9Jp0BNqJIg9K1uZdSp3KAUzbbY4RfTLsu7I0mhe/0nh0Vfu4+ZCGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\todoAppBe\\TodoAppBe\\TodoAppBe\\TodoAppBe.csproj",
+  "projectFilePath": "C:\\Users\\tomas.seliga\\Desktop\\C#\\ToDoApp\\TodoAppBe\\TodoAppBe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tomas.seliga\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\tomas.seliga\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

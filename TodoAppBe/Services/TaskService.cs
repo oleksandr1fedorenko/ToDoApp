@@ -4,10 +4,11 @@ using TodoAppBe.Domain;
 using TodoAppBe.DTO;
 using TodoAppBe.Entities;
 using TodoAppBe.Exceptions;
+using TodoAppBe.Services.Interfaces;
 
 namespace TodoAppBe.Services;
 
-public class TaskService
+public class TaskService : ITaskService
 {
     private ApplicationContext _context;
 
@@ -34,49 +35,58 @@ public class TaskService
             return task.ToDto();
         }
 
+        public Task<TTaskDto> CreateAsync(Guid Id, string Title, string Description, string Priority, CancellationToken ct = default)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task DeleteAsync(
-            Guid publicId,
-            CancellationToken ct = default)
-        {
-             var task = await _context.Tasks
-                .SingleOrDefaultAsync(x => x.PublicId == publicId, ct);
-            _context.Tasks.Remove(task);
-            await _context.SaveChangesAsync(ct);
-        }
-
-        public async Task<TTaskDto> GetAsync(
-            Guid publicId,
-            CancellationToken ct = default)
-        {
-            var task = await _context.Tasks
-                .AsNoTracking()
-                .SingleOrDefaultAsync(x => x.PublicId == publicId, ct);
-            if (task == null)
+                Guid publicId,
+                CancellationToken ct = default)
             {
-            throw new NotFoundException("Task not found ({ID})".Replace("{ID}", ""+publicId));
+                var task = await _context.Tasks
+                    .SingleOrDefaultAsync(x => x.PublicId == publicId, ct);
+                _context.Tasks.Remove(task);
+                await _context.SaveChangesAsync(ct);
             }
 
-            return task.ToDto();
-        }
-
-        public async Task<TTaskDto> UpdateAsync(
-            Guid publicId,
-            TTaskModel model,
-            CancellationToken ct = default)
-        {
-            var task = await _context.Tasks
-                .SingleOrDefaultAsync(x => x.PublicId == publicId, ct);
-            if (task == null)
+            public async Task<TTaskDto> GetAsync(
+                Guid publicId,
+                CancellationToken ct = default)
             {
+                var task = await _context.Tasks
+                    .AsNoTracking()
+                    .SingleOrDefaultAsync(x => x.PublicId == publicId, ct);
+                if (task == null)
+                {
                 throw new NotFoundException("Task not found ({ID})".Replace("{ID}", ""+publicId));
+                }
+
+                return task.ToDto();
             }
 
-            task.Description = model.Description;
-            task.Priority = model.Priority;
+            public async Task<TTaskDto> UpdateAsync(
+                Guid publicId,
+                TTaskModel model,
+                CancellationToken ct = default)
+            {
+                var task = await _context.Tasks
+                    .SingleOrDefaultAsync(x => x.PublicId == publicId, ct);
+                if (task == null)
+                {
+                    throw new NotFoundException("Task not found ({ID})".Replace("{ID}", ""+publicId));
+                }
 
-            _context.Tasks.Update(task);
-            await _context.SaveChangesAsync(ct);
-            return task.ToDto();
-        }
-    
+                task.Description = model.Description;
+                task.Priority = model.Priority;
+
+                _context.Tasks.Update(task);
+                await _context.SaveChangesAsync(ct);
+                return task.ToDto();
+            }
+
+            public Task<TTaskDto> UpdateAsync(Guid Id, string Description, string Priority, CancellationToken ct = default)
+            {
+                throw new NotImplementedException();
+            }
 }

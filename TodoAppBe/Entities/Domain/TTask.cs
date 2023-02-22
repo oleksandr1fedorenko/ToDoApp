@@ -12,10 +12,10 @@ namespace TodoAppBe.Domain
         [Required]
         public Guid? PublicId { get; set; }
 
-        [Required, StringLength(50)]
+        [Required]
         public string Title { get; set; }
 
-        [StringLength(500)]
+        [Required]
         public string Description { get; set; }
 
         [Required]
