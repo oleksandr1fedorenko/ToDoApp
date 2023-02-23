@@ -7,7 +7,7 @@ using TodoAppBe.Services.Interfaces;
 
 namespace TodoAppBe.Services;
 
-public class TaskService:ITaskService
+public class TaskService : ITaskService
 {
     private readonly ApplicationContext _context;
 
@@ -45,6 +45,30 @@ public class TaskService:ITaskService
         };
 
         await _context.Tasks.AddAsync(task);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> UpdateAsync(TaskDto taskDto)
+    {
+        var task = await _context.Tasks.FirstOrDefaultAsync(x => x.Id == taskDto.Id);
+
+        if (task == null)
+        {
+            throw new Exception("Empty");
+        }
+
+        if (await _context.Tasks.AnyAsync(x => x.Title == taskDto.Title && x.Id != taskDto.Id))
+        {
+            throw new Exception("Already exist !");
+        }
+
+        task.Title = taskDto.Title;
+        task.Description = taskDto.Description;
+        task.Priority = taskDto.Priority;
+
+
+        _context.Tasks.Update(task);
         await _context.SaveChangesAsync();
         return true;
     }

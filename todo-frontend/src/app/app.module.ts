@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from "../core/header/header.component";
-import {FooterComponent} from "../core/footer/footer.component";
 import {CoreModule} from "../core/core.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -13,7 +11,8 @@ import { TaskComponent } from './task/task.component';
 import { LoginComponent } from './login/login.component';
 import { TaskEditorComponent } from './task/task-editor/task-editor.component';
 import {FormsModule} from "@angular/forms";
-import {AuthInterceptor} from "./services/auth.interceptor";
+import {TaskService} from "../services/task.service";
+
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import {AuthInterceptor} from "./services/auth.interceptor";
     TaskComponent,
     LoginComponent,
     TaskEditorComponent,
-   // HomeComponent,
+
 
   ],
   imports: [
@@ -31,13 +30,10 @@ import {AuthInterceptor} from "./services/auth.interceptor";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true,
-  },],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
