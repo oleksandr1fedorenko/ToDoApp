@@ -49,16 +49,16 @@ public class TaskService : ITaskService
         return true;
     }
 
-    public async Task<bool> UpdateAsync(TaskDto taskDto)
+    public async Task<bool> UpdateAsync(int taskId,TaskDto taskDto)
     {
-        var task = await _context.Tasks.FirstOrDefaultAsync(x => x.Id == taskDto.Id);
+        var task = await _context.Tasks.FirstOrDefaultAsync(x => x.Id== taskId);
 
         if (task == null)
         {
             throw new Exception("Empty");
         }
 
-        if (await _context.Tasks.AnyAsync(x => x.Title == taskDto.Title && x.Id != taskDto.Id))
+        if (await _context.Tasks.AnyAsync(x => x.Title == taskDto.Title && x.Id != taskId))
         {
             throw new Exception("Already exist !");
         }
@@ -71,6 +71,17 @@ public class TaskService : ITaskService
         _context.Tasks.Update(task);
         await _context.SaveChangesAsync();
         return true;
+    }
+
+    public async Task<TaskDto> GetAsync(int taskId)
+    {
+        var task = await _context.Tasks.AsNoTracking().SingleOrDefaultAsync(x => x.Id == taskId);
+        if (task == null)
+        {
+            throw new Exception($"Product with ID: {taskId} doesn't exist");
+        }
+
+        return task.toDto();
     }
 
     public async Task DeleteAsync(int id)

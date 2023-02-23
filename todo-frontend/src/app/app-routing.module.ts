@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'tasks',children:[
       {path:'new',component:TaskEditorComponent,data:{mode:'new'}},
-      {path:'edit',component:TaskEditorComponent,data:{mode:'edit'}}
+      {path:'edit/:id',component:TaskEditorComponent,data:{mode:'edit'}}
     ]}
 ];
 

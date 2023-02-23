@@ -13,7 +13,7 @@ import {TaskService} from "../../services/task.service";
 export class TaskComponent implements OnInit {
   obj = {} as Task
   tasks: Task[] = [];
-taskPr='';
+
 
   constructor(private router: Router, private route: ActivatedRoute, private taskService: TaskService) {
   }
@@ -46,6 +46,4 @@ taskPr='';
     this.getAllTasks()
 
   }
-
-
 }

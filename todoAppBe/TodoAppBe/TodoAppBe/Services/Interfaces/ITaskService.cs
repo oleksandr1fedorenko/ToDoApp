@@ -8,5 +8,6 @@ public interface ITaskService
     Task<List<TaskDto>> GetAllAsync();
     Task<bool> CreateAsync(TaskModel taskModel);
     Task DeleteAsync(int id);
-    Task<bool> UpdateAsync(TaskDto taskDto);
+    Task<bool> UpdateAsync( int taskId,TaskDto taskDto);
+    Task<TaskDto> GetAsync(int taskId);
 }

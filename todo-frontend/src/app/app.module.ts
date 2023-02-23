@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { TaskComponent } from './task/task.component';
 import { LoginComponent } from './login/login.component';
 import { TaskEditorComponent } from './task/task-editor/task-editor.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TaskService} from "../services/task.service";
 
 
@@ -23,16 +23,17 @@ import {TaskService} from "../services/task.service";
 
 
   ],
-  imports: [
-    HomeComponent,
-    CoreModule,
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
+    imports: [
+        HomeComponent,
+        CoreModule,
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

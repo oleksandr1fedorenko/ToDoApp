@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/internal/Observable";
-import { Task } from "../app/models/task";
+import {Task} from "../app/models/task";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,14 @@ export class TaskService {
   }
 
   removeTask(task: Task) {
-    return this.http.delete<boolean>('https://localhost:5001/api/Task/' + task.id, {responseType: "json"})
+    return this.http.delete<boolean>('https://localhost:5001/api/Task' + task.id, {responseType: "json"})
   }
+
+  updateTask(id: number, task: { description: string; title: string; priority: string }) {
+    return this.http.put<Task>('https://localhost:5001/api/Task/' + id,task)
+  }
+  getTask(id:number){
+    return this.http.get<Task>('https://localhost:5001/api/Task/' +id);
+  }
+
 }

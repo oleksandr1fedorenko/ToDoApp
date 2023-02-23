@@ -18,8 +18,12 @@ export class LoginComponent {
     this.authService.login(user).subscribe((token: string) => {
       localStorage.setItem('token', token);
       localStorage.setItem('username', user.username);
+      localStorage.setItem("isLoggedIn", String(true));
       this.router.navigateByUrl("tasks")
     });
   }
+
+
+
 
 }

@@ -4,10 +4,22 @@
       <div class="flex h-16 items-center">
         <div class="ml-8 lg:block lg:self-stretch">
           <div class="flex h-full space-x-8 items-center">
+
             <a class="color" routerLink="/home" routerLinkActive="text-zinc-600">Home</a>
+
             <a routerLink="/tasks" routerLinkActive="text-zinc-600">Tasks</a>
-            <a routerLink="/login" routerLinkActive="text-zinc-600">Login</a>
+            <div class="lg:flex lg:flex-1 lg:items-center lg:justify-end space-x-6">
+              <button *ngIf="!isLoggedIn" class="text-sm font-medium text-gray-700 hover:text-gray-800"
+                      routerLink="/login">Login
+              </button>
+              <button *ngIf="isLoggedIn" class="text-sm font-medium text-gray-700 hover:text-gray-800"
+                      (click)="logout()" >Logout
+              </button>
+              <span class="h-6 w-px bg-gray-200"></span>
+            </div>
           </div>
+
+
         </div>
       </div>
     </div>

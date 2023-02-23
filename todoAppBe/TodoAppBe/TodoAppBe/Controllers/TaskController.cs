@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using TodoAppBe.DTO;
 using TodoAppBe.Model;
 using TodoAppBe.Services.Interfaces;
@@ -18,7 +17,18 @@ namespace TodoAppBe.Controllers
         {
             _taskService = taskService;
         }
-
+        public const string GetProductRouteName = "gettask";
+        
+        [HttpGet("{task_id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TaskDto))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetAsync(
+            [Required, FromRoute(Name = "task_id")] int taskId,
+            CancellationToken ct)
+        {
+            TaskDto taskDto = await _taskService.GetAsync(taskId);
+            return Ok(taskDto);
+        }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -49,10 +59,11 @@ namespace TodoAppBe.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> UpdateAsync(
-            [Required, FromBody, Bind] TaskDto taskDto
+            [Required,FromRoute(Name = "task_id")] int taskId,
+            [FromBody, Bind] TaskDto taskDto
         )
         {
-            var task = await _taskService.UpdateAsync(taskDto);
+            var task = await _taskService.UpdateAsync(taskId,taskDto);
             return Ok(task);
         }
         
