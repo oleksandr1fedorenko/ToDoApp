@@ -1,11 +1,10 @@
-<div class="mt-2 flex flex-col items-center justify-center h-75">
+<app-header></app-header>
+<div class="mt-2 grid grid-cols-2 grid-flow-col gap-4 h-75">
   <h1
     class="text-5xl font-bold bg-gradient-to-r from-gray-700 via-gray-900 to-black inline-block text-transparent bg-clip-text">
     Welcome to the To Do App </h1>
 </div>
 <form>
-
-
   <div>
     <label class="block font-bold mb-2" for="name">Task Name</label>
     <input [(ngModel)]="obj.title"
@@ -13,10 +12,7 @@
            name="name"
            class="w-64 border border-gray-400 p-2"
            type="text"
-           id="name"
-           required minlength="5">
-
-
+           id="name">
   </div>
 
   <div class="mb-4">
@@ -26,15 +22,14 @@
            name="description"
            class="w-64 border border-gray-400 p-2"
            type="text"
-           id="description"
-           required minlength="5">
-
-
+           id="description">
   </div>
 
   <div class="mb-4">
     <label class="block font-bold mb-2 " for="priority">Priority</label>
-    <select id="priority" [(ngModel)]="obj.priority" [ngModelOptions]="{standalone: true}"
+    <select id="priority"
+            [(ngModel)]="obj.priority"
+            [ngModelOptions]="{standalone: true}"
             class="w-30 border border-gray-400 p-2">
       <option value="High">High</option>
       <option value="Medium">Medium</option>
@@ -44,7 +39,7 @@
   </div>
   <div class="relative overflow-x-auto">
     <div class="pt-2">
-      <button type="button" (click)="addNewTask(obj)" data-bs-dismiss="modal"
+      <button type="button" (click)="addNewTask(obj)"
               class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800   font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2  dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600">
         Add new task
       </button>
@@ -56,6 +51,9 @@
 <table class="w-full text-sm text-left mt-10 ">
   <thead class="text-xs  uppercase">
   <tr>
+    <th scope="col" class="px-6 py-3">
+      Task Status
+    </th>
     <th scope="col" class="px-6 py-3">
       Task name
     </th>
@@ -72,9 +70,12 @@
 
   <tbody *ngFor="let task of tasks">
   <tr class="bg-white border-b dark:border-gray-700">
-    <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap">
+    <td class="mr-24">
+      <input type="checkbox" class="">
+    </td>
+    <td  class="task_title px-6 py-4 font-medium  whitespace-nowrap">
       {{task.title}}
-    </th>
+    </td>
     <td class="px-6 py-4">
       {{task.description}}
     </td>

@@ -4,12 +4,14 @@ import {Observable} from 'rxjs/internal/Observable';
 import {User} from '../app/models/user';
 import {EMPTY, Subject, Subscriber} from "rxjs";
 import {MessageService} from "./message.service";
-import {IRegister} from "../app/models/IRegister";
+
+export const DEFAULT_REDIRECT_AFTER_LOGIN = "/tasks";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  public redirectAfterLogin: string = DEFAULT_REDIRECT_AFTER_LOGIN
 
   constructor(private http: HttpClient, private messageService: MessageService,) {
   }
@@ -31,7 +33,7 @@ export class AuthService {
     return localStorage.getItem("isLoggedIn") === "true";
   }
 
- register(user: User){
+  register(user: User) {
     return this.http.post<string>('https://localhost:5001/api/Auth/register', user)
 
   }
