@@ -2,6 +2,8 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Task} from '../models/task';
 import {TaskService} from "../../services/task.service";
+import {FormControl, Validators} from "@angular/forms";
+import {MessageService} from "../../services/message.service";
 
 
 @Component({
@@ -15,7 +17,7 @@ export class TaskComponent implements OnInit {
   tasks: Task[] = [];
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private taskService: TaskService) {
+  constructor(private router: Router, private route: ActivatedRoute, private taskService: TaskService,private messageService:MessageService) {
   }
 
   addNewTask(task: Task) {
@@ -23,6 +25,7 @@ export class TaskComponent implements OnInit {
     this.taskService.addTask(task).subscribe((res: any) => {
       console.log(res)
       this.getAllTasks()
+      this.messageService.success("Task was added successfully")
     })
   }
 
@@ -37,6 +40,7 @@ export class TaskComponent implements OnInit {
     console.log(task)
     this.taskService.removeTask(task).subscribe(() => {
       this.getAllTasks()
+      this.messageService.success("Task deleted successfully")
     })
   }
 

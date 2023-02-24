@@ -20,7 +20,7 @@ export class TaskService {
   }
 
   removeTask(task: Task) {
-    return this.http.delete<boolean>('https://localhost:5001/api/Task' + task.id, {responseType: "json"})
+    return this.http.delete<boolean>('https://localhost:5001/api/Task/' + task.id, {responseType: "json"})
   }
 
   updateTask(id: number, task: { description: string; title: string; priority: string }) {

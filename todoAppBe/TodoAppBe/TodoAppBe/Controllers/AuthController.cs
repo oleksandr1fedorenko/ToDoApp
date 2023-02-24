@@ -24,7 +24,7 @@ public class AuthController : ControllerBase
 
     [HttpPost("register")]
     public async Task<IActionResult> RegisterAsync(
-        [FromForm, Bind] UserDto
+        [FromBody, Bind] UserDto
             request, CancellationToken ct)
     {
         try

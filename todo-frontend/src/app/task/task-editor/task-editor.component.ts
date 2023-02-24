@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Task} from "../../models/task";
 import {TaskService} from "../../../services/task.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {MessageService} from "../../../services/message.service";
 
 @Component({
   selector: 'app-task-editor',
@@ -10,14 +11,14 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./task-editor.component.css']
 })
 export class TaskEditorComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private taskService: TaskService, private router: Router) {
+  constructor(private route: ActivatedRoute, private taskService: TaskService, private router: Router,private messageService:MessageService) {
   }
 
   tasks: Task[] = [];
   mode: 'new' | 'edit' = 'new';
   pageTitle = 'Add new task';
   taskId: number | null = null;
-  titleControl = new FormControl('', {nonNullable: true, validators: [Validators.required, Validators.minLength(3)]});
+  titleControl = new FormControl('', {nonNullable: true, validators: [Validators.required, Validators.minLength(5)]});
   descriptionControl = new FormControl('', {
     nonNullable: true,
     validators: [Validators.maxLength(50)],
@@ -39,15 +40,12 @@ export class TaskEditorComponent implements OnInit {
     }
   }
 
-  updateTask(task: Task) {
-
-
-  }
-
   save() {
     const payload = this.getFormValue();
-    this.taskService.updateTask(this.taskId!,payload).subscribe(() => {
+    this.taskService.updateTask(this.taskId!, payload).subscribe(() => {
       this.router.navigateByUrl(`/tasks`);
+      this.messageService.success('Task was edited Successfully')
+
 
     })
   }

@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { TaskEditorComponent } from './task/task-editor/task-editor.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TaskService} from "../services/task.service";
+import { MessageComponent } from './message/message.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import {TaskService} from "../services/task.service";
     TaskComponent,
     LoginComponent,
     TaskEditorComponent,
+    MessageComponent,
+    RegisterComponent,
 
 
   ],
