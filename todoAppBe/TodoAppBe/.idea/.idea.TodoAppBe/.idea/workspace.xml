@@ -7,7 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ddf111-cbb7-4f34-92b6-3062a13dc119" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TodoAppBe/Controllers/WeatherForecastController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/.angular/cache/15.1.6/angular-webpack/93bb8a08f3f3f1e1e00c4e1eba00c793c3fcda63/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo-frontend/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoAppBe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoAppBe/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +168,9 @@
       <workItem from="1676980637631" duration="1562000" />
       <workItem from="1676982242850" duration="3092000" />
       <workItem from="1677137402204" duration="10680000" />
-      <workItem from="1677223882377" duration="4625000" />
+      <workItem from="1677223882377" duration="7200000" />
+      <workItem from="1677411660223" duration="335000" />
+      <workItem from="1677432282827" duration="606000" />
     </task>
     <servers />
   </component>

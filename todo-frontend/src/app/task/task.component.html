@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="mt-2 grid grid-cols-2 grid-flow-col gap-4 h-75">
   <h1
-    class="text-5xl font-bold bg-gradient-to-r from-gray-700 via-gray-900 to-black inline-block text-transparent bg-clip-text">
+    class="text-center text-5xl font-bold bg-gradient-to-r from-gray-700 via-gray-900 to-black inline-block text-transparent bg-clip-text">
     Welcome to the To Do App </h1>
 </div>
 <form>
@@ -31,9 +31,9 @@
             [(ngModel)]="obj.priority"
             [ngModelOptions]="{standalone: true}"
             class="w-30 border border-gray-400 p-2">
-      <option value="High">High</option>
-      <option value="Medium">Medium</option>
-      <option value="Low">Low</option>
+      <option class="redText" value="High">High</option>
+      <option class="yellowText" value="Medium">Medium</option>
+      <option class="greenText"  value="Low">Low</option>
     </select>
 
   </div>
@@ -70,17 +70,15 @@
 
   <tbody *ngFor="let task of tasks">
   <tr class="bg-white border-b dark:border-gray-700">
-    <td class="mr-24">
-      <input type="checkbox" class="">
+    <input type="checkbox" class="ml-10 bg-amber-200 hover:bg-amber-400 cursor-pointer  w-5 h-5 border-3 border-rose-500 rounded-lg checked:bg-green-500 ">
+    <td class="task px-6 py-4 font-medium  whitespace-nowrap">
+      <p class="font-bold italic"> {{task.title}}</p>
     </td>
-    <td  class="task_title px-6 py-4 font-medium  whitespace-nowrap">
-      {{task.title}}
+    <td class="task px-6 py-4">
+      <p class="font-bold italic">  {{task.description}}</p>
     </td>
-    <td class="px-6 py-4">
-      {{task.description}}
-    </td>
-    <td class="px-6 py-4">
-      {{task.priority}}
+    <td class="task px-6 py-4">
+      <p class="font-bold italic"> {{task.priority}}</p>
     </td>
     <a [routerLink]="['edit',task.id]">
       <button type="button"
@@ -94,6 +92,7 @@
     </button>
   </tr>
   </tbody>
+
 </table>
 
 
