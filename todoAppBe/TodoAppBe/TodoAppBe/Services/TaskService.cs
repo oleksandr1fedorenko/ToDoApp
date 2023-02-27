@@ -2,6 +2,7 @@
 using TodoAppBe.Database;
 using TodoAppBe.DTO;
 using TodoAppBe.Entities;
+using TodoAppBe.Exceptions;
 using TodoAppBe.Model;
 using TodoAppBe.Services.Interfaces;
 
@@ -22,7 +23,7 @@ public class TaskService : ITaskService
 
         if (items == null)
         {
-            throw new Exception("Tasks not found");
+            throw new NotFoundException("Tasks not found");
         }
 
         var tasks = items.Select(x => x.toDto()).ToList();
@@ -32,11 +33,7 @@ public class TaskService : ITaskService
 
     public async Task<bool> CreateAsync(TaskModel taskModel)
     {
-        if (await _context.Tasks.AnyAsync(x => x.Title == taskModel.Title))
-        {
-            throw new Exception($"Product with name {taskModel.Title} already exists");
-        }
-
+        
         var task = new TaskEntity
         {
             Priority = taskModel.Priority,
@@ -55,7 +52,7 @@ public class TaskService : ITaskService
 
         if (task == null)
         {
-            throw new Exception("Empty");
+            throw new NotFoundException("Empty");
         }
 
         if (await _context.Tasks.AnyAsync(x => x.Title == taskDto.Title && x.Id != taskId))
@@ -78,7 +75,7 @@ public class TaskService : ITaskService
         var task = await _context.Tasks.AsNoTracking().SingleOrDefaultAsync(x => x.Id == taskId);
         if (task == null)
         {
-            throw new Exception($"Product with ID: {taskId} doesn't exist");
+            throw new NotFoundException($"Product with ID: {taskId} doesn't exist");
         }
 
         return task.toDto();
@@ -90,7 +87,7 @@ public class TaskService : ITaskService
 
         if (item == null)
         {
-            throw new Exception("Task not found");
+            throw new NotFoundException("Task not found");
         }
 
         _context.Tasks.Remove(item);

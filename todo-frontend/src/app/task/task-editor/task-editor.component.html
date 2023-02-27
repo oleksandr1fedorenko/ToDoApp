@@ -10,26 +10,26 @@
 
   </div>
   <div class="mb-4">
-    <label class="block font-bold mb-2" for="price">Description</label>
+    <label class="block font-bold mb-2" for="description">Description</label>
     <input [formControl]="descriptionControl"
 
            class="w-full border border-gray-400 p-2"
            type="text"
-           id="price">
+           id="description">
 
   </div>
   <div class="mb-4">
-    <label class="block font-bold mb-2" for="category">Priority</label>
+    <label class="block font-bold mb-2" for="priority">Priority</label>
     <select [formControl]="priorityControl"
             class="w-full border border-gray-400 p-2"
-            id="category">
+            id="priority">
       <option value="High">High</option>
       <option value="Medium">Medium</option>
       <option value="Low">Low</option>
     </select>
 
   </div>
-  <button
+  <button id="save"
     class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800   font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2  dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600"
     type="submit">
     Save
