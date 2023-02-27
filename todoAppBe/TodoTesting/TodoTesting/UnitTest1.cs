@@ -12,6 +12,7 @@ namespace TodoTesting
         private readonly By _usernameRegisterInput = By.XPath("//input[@id='inputUsername']");
         private readonly By _passwordRegisterInput = By.XPath("//input[@id='inputPassword']");
         private readonly By _registerBtn = By.XPath("//button[@id='reg']");
+      
 
         private readonly By _usernameInput = By.XPath("//input[@id='username']");
         private readonly By _passwordInput = By.XPath("//input[@id='password']");
@@ -25,8 +26,9 @@ namespace TodoTesting
         private readonly By _editBtn = By.XPath("//button[@id='edit']");
         private readonly By _saveBtn = By.XPath("//button[@id='save']");
 
-
-        private readonly By _actualLoginResult = By.XPath("//h1[@id='greet-text']");
+        private readonly By _actualRegResult = By.XPath("//*[@id='reg-text']");
+        private readonly By _actualLoginResult = By.XPath("//*[@id='greet-text']");  
+        private readonly By _actualEditResult = By.XPath("//h1[@id='editTitle']");
 
         private readonly string usernameRegText = "testusername";
         private readonly string passwordRegText = "testpassword";
@@ -36,9 +38,10 @@ namespace TodoTesting
         private readonly string descText = "test desc";
         private readonly string titleEditText = "test title after edit";
         private readonly string descEditText = "test desc after edit";
-        
 
+        private string _expectedRegResult = "Account Registration";
         private  string _expectedLoginResult = "Welcome to the To Do App";
+        private string _expectedEditResult = "Edit Task";
 
         private string _errorMessage = "This element does not exist";
 
@@ -46,7 +49,9 @@ namespace TodoTesting
         public void Setup()
         {
             driver=new OpenQA.Selenium.Chrome.ChromeDriver();
+            driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(_projectUrl);
+            Waits.ShouldLocate(driver,_projectUrl);
         }
 
         [Test]
@@ -56,14 +61,21 @@ namespace TodoTesting
             var register = driver.FindElement(_registerLink);
             register.Click();
 
+            Waits.WaitSomeTime(10);
+            var actualRegResult = driver.FindElement(_actualRegResult).Text;
+            Assert.AreEqual(_expectedRegResult, actualRegResult, _errorMessage);
+
+            Waits.WaitSomeTime(3);
             var regUsername = driver.FindElement(_usernameRegisterInput);
             regUsername.Click();
             regUsername.SendKeys(usernameRegText);
 
-            var regPassword=driver.FindElement(_passwordRegisterInput);
+            Waits.WaitSomeTime(3);
+            var regPassword =driver.FindElement(_passwordRegisterInput);
             regPassword.Click();
             regPassword.SendKeys(passwordRegText);
 
+            Waits.WaitSomeTime(3);
             var regBtn = driver.FindElement(_registerBtn);
             regBtn.Click();
 
@@ -77,15 +89,17 @@ namespace TodoTesting
             username.Click();
             username.SendKeys(usernameText);
 
+            Waits.WaitSomeTime(3);
             var password = driver.FindElement(_passwordInput);
             password.Click();
             password.SendKeys(passwordText);
 
+            Waits.WaitSomeTime(3);
             var loginBtn=driver.FindElement(_loginBtn);
             loginBtn.Click();
 
-            Waits.WaitSomeTime();
-            var actualLoginResult=driver.FindElement(_actualLoginResult).Text;
+            Waits.WaitForElement(driver, _actualLoginResult);
+            var actualLoginResult = driver.FindElement(_actualLoginResult).Text;
             Assert.AreEqual(_expectedLoginResult, actualLoginResult, _errorMessage);
 
         }
@@ -94,20 +108,24 @@ namespace TodoTesting
         public void AddTaskTest()
         {
             LoginTest();
+            Waits.WaitSomeTime(3);
 
             var title = driver.FindElement(_taskTitleInput);
             title.Click();
             title.SendKeys(titleText);
-            
-            var desc=driver.FindElement(_taskDescInput);
+            Waits.WaitSomeTime(3);
+
+            var desc =driver.FindElement(_taskDescInput);
             desc.Click();
             desc.SendKeys(descText);
+            Waits.WaitSomeTime(3);
 
             var priority = driver.FindElement(_priority);
             priority.Click();
 
             var option =driver.FindElement(_option);
             option.Click();
+            Waits.WaitSomeTime(3);
 
             var add = driver.FindElement(_addBtn);
             add.Click();
@@ -117,9 +135,9 @@ namespace TodoTesting
         public void RemoveTaskTest()
         { 
             LoginTest();
-            var delete =driver.FindElement(_deleteBtn);
+            var delete = driver.FindElement(_deleteBtn);
             delete.Click();
-
+            
         }
 
         [Test]
@@ -128,6 +146,10 @@ namespace TodoTesting
             LoginTest();
             var edit=driver.FindElement(_editBtn);
             edit.Click();
+            Waits.WaitForElement(driver, _actualEditResult);
+            var actualEditResult=driver.FindElement(_actualEditResult).Text;
+            
+            Assert.That(actualEditResult, Is.EqualTo(_expectedEditResult), _errorMessage);
 
             var title = driver.FindElement(_taskTitleInput);
             title.Click();

@@ -23,7 +23,7 @@ namespace TodoTesting
             }
         }
 
-        public static void WaitSomeTime(int timeout=10) 
+        public static void WaitSomeTime(int timeout) 
         {
 
             Task.Delay(TimeSpan.FromSeconds(timeout)).Wait();
